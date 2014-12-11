@@ -11,6 +11,8 @@ Do the following steps in the followiong folder
 
 ~/
 
+Get the WINGZ-FILES 
+
       git clone https://github.com/CDACBANG/WINGZ-FILES.git 
 
 
@@ -36,8 +38,14 @@ U-BOOT :: U-Boot Compilation for WINGZ board
 
 u-boot:
 
-		cd $HOME/WINGZ-FILES/wingz_uboot/uboot/
-   	
+~/
+
+Get the u-boot for WINGZ 
+
+	  git clone https://github.com/CDACBANG/u-boot-wingz.git 
+	  
+	  cd $HOME/u-boot-wingz/
+	  
 	  make ARCH=arm CROSS_COMPILE=${CC} distclean
 	  make ARCH=arm CROSS_COMPILE=${CC} omap3_wingz_defconfig
 	  make ARCH=arm CROSS_COMPILE=${CC}
