@@ -181,8 +181,7 @@ Add:
       
       
       auto lo
-      iface lo inet
-      loopback
+      iface lo inet loopback
  
       auto eth0
       iface eth0 inet dhcp
