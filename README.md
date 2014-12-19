@@ -215,3 +215,22 @@ Now, update the SD card and unmout it!
       
       
 Place the SD card in the WINGZ board, power it up. It has to boot successfully..... 
+
+
+**FILE SYSTEM:**
+
+Other way to set-up SD card, You can use File system provided by CDAC team - wingz-rootfs.bz2 ( by default it will have 3.17.3 kernel )
+If you use WINGZ FS, no need to update File system table, networking and serial login
+
+
+If you want to update the Recent kernel you just compiled
+simply do this steps:
+
+		sudo sh -c "echo 'uname_r=${kernel_version}' > /media/rootfs/boot/uEnv.txt"
+		
+		sudo cp -v $HOME/compiled_modules/kernel_image/${kernel_version}.zImage   /media/rootfs/boot/vmlinuz-${kernel_version}
+  		sudo mkdir -p /media/rootfs/boot/dtbs/${kernel_version}/
+  		sudo cp -rfv $HOME/compiled_modules/dtbs/ /media/rootfs/boot/dtbs/${kernel_version}/
+
+  		sudo cp -rfv $HOME/compiled_modules/modules/* /media/rootfs/
+  		sudo cp -rfv $HOME/compiled_modules/firmwares/* /media/rootfs/lib/firmware/
