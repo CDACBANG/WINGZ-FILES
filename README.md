@@ -96,6 +96,23 @@ Now, copy the configuration file of wingz to the linux-kernel configuration file
 
     cd $HOME/linux-stable/
     
+    
+Before proceeding further, for proper working of Touchscreen small change is required for the driver of tsc2007 controller.
+    
+you can use your favourite editor, no problem
+    
+    vim $HOME/linux-stable/drivers/input/touchscreen/tsc2007.c
+    
+Go to this line 
+    
+    ts->gpio = of_get_gpio(np, 0);
+    
+and update 0 with 157 as
+    
+    ts->gpio = of_get_gpio(np, 157);
+    
+Now, you can compile the kernel with the WINGZ configuration 
+
     make -j4 ARCH=arm CROSS_COMPILE=${CC} menuconfig
     make -j4 ARCH=arm CROSS_COMPILE=${CC} zImage modules
     make -j4 ARCH=arm CROSS_COMPILE=${CC} dtbs
